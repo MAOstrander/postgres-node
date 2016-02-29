@@ -2,11 +2,11 @@
   "name": "postgres-node",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon server.js",
-    "start": "node server.js"
+    "serve": "nodemon app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/MAOstrander/postgres-node#readme",
   "devDependencies": {
-    "nodemon": "^1.9.1"
+    "nodemon": "^1.9.1",
+    "sequelize-cli": "^2.3.1"
   },
   "dependencies": {
     "pg": "^4.5.1",
