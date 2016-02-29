@@ -1,0 +1,29 @@
+{
+  "name": "postgres-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAOstrander/postgres-node.git"
+  },
+  "author": "Mathew Ostrander <mathew.ostrander@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MAOstrander/postgres-node/issues"
+  },
+  "homepage": "https://github.com/MAOstrander/postgres-node#readme",
+  "devDependencies": {
+    "nodemon": "^1.9.1"
+  },
+  "dependencies": {
+    "pg": "^4.5.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.19.3"
+  }
+}
