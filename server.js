@@ -1,31 +1,59 @@
 'use strict';
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://localhost:5432/nodegresql');
+const express = require('express');
+// const Sequelize = require('sequelize');
+// const sequelize = new Sequelize('postgres://localhost:5432/nodegresql');
+const models = require('./models/')
 
-const Frenemy = sequelize.define('frenemy', {
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE,
-  foe: Sequelize.BOOLEAN
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+
+
+app.get('/', (req, res) => {
+  res.send('Hey, this is crazy')
 });
 
-const Project = sequelize.define('project', {
-  name: Sequelize.STRING
+app.get('/genres', (req, res) => {
+  models.Genre
+  .findAll()
+  .then( (genres) => {
+    res.send(genres);
+  })
 });
 
-Project.hasMany(Frenemy, {as: 'workers'});
+app.get('/mediatypes', (req, res) => {
+  models.MediaType
+  .findAll()
+  .then( (types) => {
+    res.send(types);
+  })
+});
 
-let agent;
+app.get('/artists', (req, res) => {
+  models.Artist
+  .findAll()
+  .then( (singer) => {
+    res.send(singer);
+  })
+});
 
-sequelize.sync().then( () => {
-  agent = Frenemy.create({
-    username: 'Agent Smith',
-    birthday: new Date(2000, 1, 1)
-  });
-}).then(function(frenemy) {
-  console.log(agent);
-}).then( () => {
-    return Project.create({
-    name: 'Invasion 101'
-  });
+app.get('/playlists', (req, res) => {
+  models.Playlist
+  .findAll()
+  .then( (tracks) => {
+    res.send(tracks);
+  })
+});
+
+app.get('/albums', (req, res) => {
+  models.Album
+  .findAll()
+  .then( (cds) => {
+    res.send(cds);
+  })
+});
+
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
