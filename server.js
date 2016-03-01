@@ -47,11 +47,14 @@ app.get('/playlists', (req, res) => {
 });
 
 app.get('/albums', (req, res) => {
-  models.Album
-  .findAll()
-  .then( (cds) => {
-    res.send(cds);
-  })
+  models.Album.findAll({
+      attributes: {exclude: ['ArtistId']},
+      include: {
+        model: models.Artist,
+        attributes: {exclude: ['ArtistId']}
+      }
+    })
+    .then(cds => res.send(cds));
 });
 
 app.listen(PORT, () => {
