@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('project',
+    return queryInterface.createTable('projects',
       {
         name: Sequelize.STRING
       }
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('project');
+    return queryInterface.dropTable('projects');
   }
 };

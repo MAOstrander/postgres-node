@@ -3,17 +3,17 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('postgres://localhost:5432/nodegresql');
 
-const Frienemy = sequelize.define('frienemies', {
+const Frienemy = sequelize.define('Frienemy', {
   name: Sequelize.STRING,
   birthday: Sequelize.DATE,
   friend: Sequelize.BOOLEAN
 });
-
 const Project = sequelize.define('projects', {
   name: Sequelize.STRING
 });
 
-Project.hasMany(Frienemy, {as: 'workers'});
+
+Project.hasMany(Frienemy);
 
 let jane;
 
